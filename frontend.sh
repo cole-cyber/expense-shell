@@ -1,10 +1,10 @@
 echo -e "\e[36m This command installed the webserver (nginx) \e[0m"
 dnf install nginx -y &>>/tmp/expense.log
 
-echo -e "e/[32m copying expense.conf file into the service file \e[0m"
+echo -e "e\[32m copying expense.conf file into the service file \e[0m"
 cp expense.conf /etc/nginx/default.d/expense.conf &>>/tmp/expense.log
 
-echo -e "e\ [35m removing the content of the installed nginx \e[0m"
+echo -e "e\[35m removing the content of the installed nginx \e[0m"
 rm -rf /usr/share/nginx/html/* &>>/tmp/expense.log
 
 echo -e "\e[32m downloading the front end of app code from developer \e[0m"
