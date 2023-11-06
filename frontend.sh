@@ -1,4 +1,4 @@
-log_file=/tmp/expense.log
+log_file="/tmp/expense.log"
 
 echo -e "\e[36m This command installed the webserver (nginx) \e[0m"
 dnf install nginx -y &>>log_file
