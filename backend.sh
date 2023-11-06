@@ -52,6 +52,7 @@ if [ $? -eq 0  ]; then
 else
   echo -e "\e[31m Failure \e[0m"
 fi
+fi
 
 echo -e "${color} Delete old application content \e[0m"
 rm -rf /app/* &>>$log_file
