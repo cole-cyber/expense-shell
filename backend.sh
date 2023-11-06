@@ -25,6 +25,10 @@ echo -e "${color} Create application directory \e[0m"
 mkdir /app &>>$log_file
 echo $?
 
+echo -e "${color} Delete old application content \e[0m"
+rm -rf /app/* &>>$log_file
+echo $?
+
 echo -e "${color} Downloading application content \e[0m"
 curl -o /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip &>>$log_file
 echo $?
