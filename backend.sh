@@ -2,6 +2,7 @@ log_file="/tmp/expense.log"
 color="\e[33m"
 if [ -z "$1" ]; then
   echo -e "\e[33m Please Input Database Password \e[0m"
+  exit
 fi
 MYSQL_ROOT_PASSWORD=$1
 
