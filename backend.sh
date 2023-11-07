@@ -1,9 +1,14 @@
 log_file="/tmp/expense.log"
 color="\e[33m"
-if [ -z "$1" ]; then
-  echo -e "\e[33m Please Input Database Password \e[0m"
+
+status check() {
+if [ $? -eq 0 ]; then
+  echo -e "\e[32m Success \e[0m"
+else
+  echo -e "\e[31m Failure \e[0m"
   exit
 fi
+}
 MYSQL_ROOT_PASSWORD=$1
 
 echo -e "${color} Disable default version of nodejs \e[0m"
