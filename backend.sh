@@ -1,14 +1,20 @@
+sorce common.sh
 log_file="/tmp/expense.log"
 color="\e[33m"
 
-status check() {
+status_check() {
 if [ $? -eq 0 ]; then
   echo -e "\e[32m Success \e[0m"
 else
   echo -e "\e[31m Failure \e[0m"
-  exit
 fi
 }
+
+if [ -z "$1" ]; then
+  echo password Input
+  exit
+  fi
+
 MYSQL_ROOT_PASSWORD=$1
 
 echo -e "${color} Disable default version of nodejs \e[0m"
