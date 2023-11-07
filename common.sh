@@ -8,3 +8,5 @@ else
   echo -e "\e[31m Failure \e[0m"
 fi
 }
+
+MYSQL_ROOT_PASSWORD=$1
