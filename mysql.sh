@@ -1,36 +1,23 @@
-log_file="/tmp/expense.log"
-color="\e[33m"
+source common.sh
 
 echo -e "${color} Disable mysql default version \e[0m"
 dnf module disable mysql -y &>>$log_file
-if [ $? -eq 0 ]; then
-echo -e "\e[32m Success \e[0m"
-fi
+status_check
 
 echo -e "${color} copy mysql repo file \e[0m"
 cp mysql.repo /etc/yum.repos.d/mysql.repo &>>$log_file
-if [ $? -eq 0 ]; then
-echo -e "\e[32m Success \e[0m"
-fi
+status_check
 
 echo -e "${color} Install mysql community server \e[0m"
 dnf install mysql-community-server -y &>>$log_file
-if [ $? -eq 0 ]; then
-echo -e "\e[32m Success \e[0m"
-fi
+status_check
 
 echo -e "${color} Enable and start msql server\e[0m"
 systemctl enable mysqld &>>$log_file
-if [ $? -eq 0 ]; then
-echo -e "\e[32m Success \e[0m"
-fi
+status_check
 systemctl start mysqld &>>$log_file
-if [ $? -eq 0 ]; then
-echo -e "\e[32m Success \e[0m"
-fi
+status_check
 
 echo -e "${color} set password for root user \e[0m"
-mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$log_file
-if [ $? -eq 0 ]; then
-echo -e "\e[32m Success \e[0m"
-fi
+mysql_secure_installation --set-root-pass ${MYSQL_ROOT_PASSWORD} &>>$log_file
+status_check
