@@ -1,5 +1,7 @@
 source common.sh
 
+MYSQL_ROOT_PASSWORD=$1
+
 echo -e "${color} Disable mysql default version \e[0m"
 dnf module disable mysql -y &>>$log_file
 status_check

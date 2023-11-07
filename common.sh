@@ -9,4 +9,4 @@ else
 fi
 }
 
-MYSQL_ROOT_PASSWORD=$1
+
