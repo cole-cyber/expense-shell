@@ -1,7 +1,7 @@
 log_file="/tmp/expense.log"
 color="\e[33m"
 
-status check() {
+status_check() {
 if [ $? -eq 0 ]; then
   echo -e "\e[32m Success \e[0m"
 else
